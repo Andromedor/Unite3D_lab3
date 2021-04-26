@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Items;
 public class PlayerInventory 
 {
     private PlayerCreature _player;
-    private List<ItemParams> _inventoryItems = new List<ItemParams>();
+    private List<Itemm> _inventoryItems = new List<Itemm>();
     private int _inventoryCapacity = 100;
    
     public PlayerInventory(PlayerCreature player)
     {
         _player = player; 
     }
-    public bool AddItemToInvenory(ItemParams item)
+    public bool AddItemToInvenory(Itemm item)
     {
         if (_inventoryItems.Count < _inventoryCapacity)
         {
@@ -25,16 +25,17 @@ public class PlayerInventory
 
        
     }
+    public void OnItemRemoved(Itemm item)
+    {
+        _inventoryItems.Remove(item);
+    }
     private void ShowInventoryItems()
     {
-        foreach (ItemParams inventoryItem in _inventoryItems)
+        foreach (Itemm inventoryItem in _inventoryItems)
         {
             Debug.Log(inventoryItem.ItemId);
         }
     }
 
-    public void RemoveItemFromInvenory()
-    {
-
-    }
+   
 }
