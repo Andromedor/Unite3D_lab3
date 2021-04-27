@@ -9,5 +9,6 @@ public class ItemInterectable : Interectable
     {
         base.Interect();
         //_thisItem.Destroy(_player);
+        //_itemBody.OnPickUp(_player);
     }
 }

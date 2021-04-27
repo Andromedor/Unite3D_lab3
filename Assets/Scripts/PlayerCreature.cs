@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerCreature : LivingCreature
 {
-   public PlayerInventory PlayerInventory { get; private set; }
+    [SerializeField] PlayerInventoryUI _playerInventoryUI;
+    public PlayerInventoryUI PlayerInventoryUI => _playerInventoryUI;
+   public PlayerInventoryController PlayerInventoryController { get; private set; }
     protected override void Start()
     {
         base.Start();
         ActionController = new PlayerActionController(this);
-        PlayerInventory = new PlayerInventory(this);
+        _playerInventoryUI.InitComponents();
+        PlayerInventoryController = new PlayerInventoryController(this);
     }
 }

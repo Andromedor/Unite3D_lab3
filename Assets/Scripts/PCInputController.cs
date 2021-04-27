@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.EventSystems;
 
 public class PCInputController 
 {
@@ -11,8 +12,8 @@ public class PCInputController
 
     public Action<Vector3, Collider> LeftPointerClikHandler = delegate { };
     private ServiceManager _serviceManager;
+    public Action CharacterWindowClicked = delegate { };
 
-   
 
     public  PCInputController(ServiceManager serviceManager)
     {
@@ -30,8 +31,14 @@ public class PCInputController
     // Update is called once per frame
     void OnUpdate()
     {
-        _leftPointClicked = Input.GetButton("Fire1");
-
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            _leftPointClicked = Input.GetButton("Fire1");
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            CharacterWindowClicked();
+        }
     }
     private void OnLateUpdate()
     {
