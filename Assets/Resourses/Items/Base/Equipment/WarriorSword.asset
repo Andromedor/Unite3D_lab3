@@ -17,7 +17,7 @@ MonoBehaviour:
   _description: Sword of a Warrior
   _cost: 20
   _stackCount: 1
-  _inventoryIcon: {fileID: 21300000, guid: b61512310132e514497bb047eaec3004, type: 3}
+  _inventoryIcon: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
   _requiredLvl: 1
   _primaryStats:
   - StatTyppe: 7
